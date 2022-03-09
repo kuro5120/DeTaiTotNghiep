@@ -1,0 +1,19 @@
+* {
+  font-family: 'Shippori Antique B1', sans-serif;
+}
+
+.search-input {
+  width: 400px;
+  background-color: #F6F5F5;
+  border: none;
+  border-radius: 15px;
+
+}
+
+.search-icon {
+  color: #A7A7A7;
+}
+
+input {
+  background-color: #F6F5F5;
+}
