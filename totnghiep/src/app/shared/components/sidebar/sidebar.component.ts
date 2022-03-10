@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  theme = true;
+
   constructor() { }
 
   ngOnInit(): void {
