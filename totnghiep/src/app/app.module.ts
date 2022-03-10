@@ -21,6 +21,9 @@ import { SharedModule } from './shared/shared.module';
 import { DashboardComponent } from './module/dashboard/dashboard.component';
 import { ProductComponent } from './module/product/product.component';
 
+import { PowerBIEmbedModule } from 'powerbi-client-angular';
+
+
 registerLocaleData(vi);
 
 
@@ -43,6 +46,8 @@ registerLocaleData(vi);
     NzEmptyModule,
 
     SharedModule,
+
+    PowerBIEmbedModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: vi_VN }],
   bootstrap: [AppComponent]

@@ -22,6 +22,10 @@ nz-layout {
   margin-bottom: 48px;
 }
 
+nz-content {
+  background-color: #F6F5F5;
+}
+
 nz-layout nz-layout,
 nz-layout:last-child {
   margin: 0;
