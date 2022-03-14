@@ -1,19 +1,14 @@
-* {
-  font-family: 'Shippori Antique B1', sans-serif;
+.log-out-btn {
+  position: absolute;
+  right: 0;
+  top: 10px;
 }
 
-.search-input {
-  width: 400px;
-  background-color: #F6F5F5;
-  border: none;
-  border-radius: 15px;
-
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
 }
 
-.search-icon {
-  color: #A7A7A7;
-}
-
-input {
-  background-color: #F6F5F5;
+nz-button-group [nz-button] {
+  margin-right: 0;
 }

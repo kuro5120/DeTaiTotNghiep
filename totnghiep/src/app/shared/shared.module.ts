@@ -9,6 +9,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 import { RouterModule } from '@angular/router';
 
@@ -24,6 +25,7 @@ import { RouterModule } from '@angular/router';
     NzIconModule,
     NzInputModule,
     NzDropDownModule,
+    NzButtonModule,
 
     RouterModule,
     FormsModule,

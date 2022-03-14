@@ -22,6 +22,8 @@ import { DashboardComponent } from './module/dashboard/dashboard.component';
 import { ProductComponent } from './module/product/product.component';
 
 import { PowerBIEmbedModule } from 'powerbi-client-angular';
+import { LoginComponent } from './module/login/login.component';
+import { HomeComponent } from './module/home/home.component';
 
 
 registerLocaleData(vi);
@@ -32,6 +34,8 @@ registerLocaleData(vi);
     AppComponent,
     DashboardComponent,
     ProductComponent,
+    LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

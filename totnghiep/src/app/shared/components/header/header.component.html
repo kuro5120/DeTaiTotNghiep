@@ -1,10 +1,5 @@
-<div nz-row>
-  <div nz-col nzSpan="8">
-    <nz-input-group [nzSuffix]="suffixIconSearch" class="search-input">
-      <input type="text" nz-input placeholder="Search here ..." />
-    </nz-input-group>
-    <ng-template #suffixIconSearch>
-      <i nz-icon nzType="search" class="search-icon"></i>
-    </ng-template>
-  </div>
-</div>
+
+<button nz-button nzType="primary" [nzSize]="size" nzShape="round" class="log-out-btn" (click)="onLogoutClick()">
+  <i nz-icon nzType="user" nzTheme="outline"></i>
+  Log out
+</button>

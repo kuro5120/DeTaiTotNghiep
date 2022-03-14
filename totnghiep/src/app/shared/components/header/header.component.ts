@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NzButtonSize } from 'ng-zorro-antd/button';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -16,4 +18,9 @@ export class HeaderComponent implements OnInit {
     console.log(data);
   }
 
+  public onLogoutClick(){
+    this.router.navigate(['/login']);
+  }
+
+  size: NzButtonSize = 'large';
 }
