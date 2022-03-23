@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './module/dashboard/dashboard.component';
+import { CompanyComponent } from './Information/company/company.component';
 import { HomeComponent } from './module/home/home.component';
 import { LoginComponent } from './module/login/login.component';
-import { ProductComponent } from './module/product/product.component';
+
+import { DashboardComponent } from './module/dashboard/dashboard.component';
+import { ProductComponent } from './module/dashboard/product/product.component';
+import { CustomerBIComponent } from './module/dashboard/customer-bi/customer-bi.component';
+import { OrderlistBiComponent } from './module/dashboard/orderlist-bi/orderlist-bi.component';
 
 const routes:  Routes = [
   {
@@ -21,12 +25,24 @@ const routes:  Routes = [
 
     children: [
       {
-        path: 'home/dashboard',
+        path: 'home/BusinessFinance',
         component: DashboardComponent
       },
       {
-        path: 'home/product',
+        path: 'home/Expenses',
         component: ProductComponent
+      },
+      {
+        path: 'home/ComparativeCosts',
+        component: CustomerBIComponent
+      },
+      {
+        path: 'home/orderlist',
+        component: OrderlistBiComponent
+      },
+      {
+        path: 'home/Company',
+        component: CompanyComponent
       },
     ]
   },

@@ -19,11 +19,15 @@ import { NzEmptyModule } from 'ng-zorro-antd/empty';
 
 import { SharedModule } from './shared/shared.module';
 import { DashboardComponent } from './module/dashboard/dashboard.component';
-import { ProductComponent } from './module/product/product.component';
+import { ProductComponent } from './module/dashboard/product/product.component';
+import { CustomerBIComponent } from './module/dashboard/customer-bi/customer-bi.component';
+import { OrderlistBiComponent } from './module/dashboard/orderlist-bi/orderlist-bi.component';
 
 import { PowerBIEmbedModule } from 'powerbi-client-angular';
 import { LoginComponent } from './module/login/login.component';
 import { HomeComponent } from './module/home/home.component';
+import { CompanyComponent } from './Information/company/company.component';
+import { OurteamComponent } from './Information/ourteam/ourteam.component';
 
 
 registerLocaleData(vi);
@@ -36,6 +40,10 @@ registerLocaleData(vi);
     ProductComponent,
     LoginComponent,
     HomeComponent,
+    CompanyComponent,
+    CustomerBIComponent,
+    OrderlistBiComponent,
+    OurteamComponent
   ],
   imports: [
     BrowserModule,
