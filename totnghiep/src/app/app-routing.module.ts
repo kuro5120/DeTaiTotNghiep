@@ -25,7 +25,7 @@ const routes:  Routes = [
 
     children: [
       {
-        path: 'home/BusinessFinance',
+        path: 'home/BusinessIncome',
         component: DashboardComponent
       },
       {

@@ -1,4 +1,4 @@
-<div class="container" onclick="onclick">
+<form class="container" onclick="onclick" id="loginform" (ngSubmit)="onSubmit()" #loginform="ngForm">
   <div class="top"></div>
   <div class="bottom"></div>
   <div class="center">
@@ -19,14 +19,28 @@
 
     <h2>Please Sign In</h2>
 
-    <input type="email" placeholder="email"/>
+    <input matInput
+          required
+          email
+          placeholder="Email"
+          [(ngModel)]="userInfo.userName"
+          #username="ngModel"
+          name="username"/>
 
-    <input type="password" placeholder="password"/>
+    <input type="password"
+          matInput
+          required
+          minlength="8"
+          [pattern]="passwordPattern"
+          placeholder="Passwords"
+          [(ngModel)]="userInfo.password"
+          #password="ngModel"
+          name="password"/>
 
-    <button nz-button nzType="primary" [nzSize]="size" nzShape="round" (click)="onLoginClick()">
+    <button nz-button nzType="primary" [nzSize]="size" nzShape="round" type="submit">
       Log in
     </button>
 
     <h2>&nbsp;</h2>
   </div>
-</div>
+</form>
