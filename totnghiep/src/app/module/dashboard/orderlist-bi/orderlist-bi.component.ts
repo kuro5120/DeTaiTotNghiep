@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as models from 'powerbi-models';
+import { TokenService } from 'src/app/Service/token.service';
+
 
 @Component({
   selector: 'app-orderlist-bi',
@@ -8,17 +10,19 @@ import * as models from 'powerbi-models';
 })
 export class OrderlistBiComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private tokenService: TokenService
+  ) { }
 
   ngOnInit(): void {
   }
 
   embedConfig = {
     type: "report",
-    pageName: 'ReportSectioncd9ff255c07c6331be3e',
-    id: "3d1a906c-da36-4ecc-bdd4-6a396fe91ba7",
-    embedUrl: "https://app.powerbi.com/reportEmbed?reportId=3d1a906c-da36-4ecc-bdd4-6a396fe91ba7&groupId=3ec1721f-a446-488e-a8db-100485f408ea&w=2&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLUVBU1QtQVNJQS1BLVBSSU1BUlktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQiLCJlbWJlZEZlYXR1cmVzIjp7Im1vZGVybkVtYmVkIjp0cnVlLCJhbmd1bGFyT25seVJlcG9ydEVtYmVkIjp0cnVlLCJjZXJ0aWZpZWRUZWxlbWV0cnlFbWJlZCI6dHJ1ZSwidXNhZ2VNZXRyaWNzVk5leHQiOnRydWUsInNraXBab25lUGF0Y2giOnRydWV9fQ%3d%3d",
-    accessToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpTMVhvMU9XRGpfNTJ2YndHTmd2UU8yVnpNYyIsImtpZCI6ImpTMVhvMU9XRGpfNTJ2YndHTmd2UU8yVnpNYyJ9.eyJhdWQiOiJodHRwczovL2FuYWx5c2lzLndpbmRvd3MubmV0L3Bvd2VyYmkvYXBpIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNWI5OGExZDQtYWJjMy00MmNkLTg5NmUtMmUxYjI0MGRjNjYyLyIsImlhdCI6MTY0ODAyNjIwNywibmJmIjoxNjQ4MDI2MjA3LCJleHAiOjE2NDgwMzA1OTYsImFjY3QiOjAsImFjciI6IjEiLCJhaW8iOiJBVFFBeS84VEFBQUFRdkxqV2pPUWw3WjFiU3BUY0t3Umo2cytWOVpJS3ZYUi9SYU8wWmI2SkJlOWZzM3pjQmZpRkdhdmkxc1Z5VUdEIiwiYW1yIjpbInB3ZCJdLCJhcHBpZCI6Ijg3MWMwMTBmLTVlNjEtNGZiMS04M2FjLTk4NjEwYTdlOTExMCIsImFwcGlkYWNyIjoiMiIsImlwYWRkciI6IjEwMS45OS41Mi4xMCIsIm5hbWUiOiJEb2FuIFBoYW0gTmdvYyBIaWV1Iiwib2lkIjoiZGNiMGNmMWUtNmRjOS00M2ZmLTk2MzgtYjcxMTA2MTQ0MTU0IiwicHVpZCI6IjEwMDMyMDAwRDhBODQxNkUiLCJwd2RfZXhwIjoiMCIsInB3ZF91cmwiOiJodHRwczovL3BvcnRhbC5taWNyb3NvZnRvbmxpbmUuY29tL0NoYW5nZVBhc3N3b3JkLmFzcHgiLCJyaCI6IjAuQVhJQTFLR1lXOE9yelVLSmJpNGJKQTNHWWdrQUFBQUFBQUFBd0FBQUFBQUFBQUJ5QUxrLiIsInNjcCI6InVzZXJfaW1wZXJzb25hdGlvbiIsInNpZ25pbl9zdGF0ZSI6WyJrbXNpIl0sInN1YiI6IlV1T3JMZzZMcmR5c05lVmZUb3dDX2ZZUm5GYlJiV0ZvSUlZRjBiV1l1bWsiLCJ0aWQiOiI1Yjk4YTFkNC1hYmMzLTQyY2QtODk2ZS0yZTFiMjQwZGM2NjIiLCJ1bmlxdWVfbmFtZSI6IjE4MTEyMTUyMTExMUBkdWUudWRuLnZuIiwidXBuIjoiMTgxMTIxNTIxMTExQGR1ZS51ZG4udm4iLCJ1dGkiOiJ3LXpWazFvTnVFNms4WlhFclpFNkFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyJiNzlmYmY0ZC0zZWY5LTQ2ODktODE0My03NmIxOTRlODU1MDkiXX0.iAjVesWbTXE-WFsHdFMiDKvk-y8mgxs-lEghicrdgFexxUeZLBUjeau0ZN6Y_aCg0JHR3Wo2pW9QZQBEFafopAHY-MeRghkELspvDlsjZaJrHojAwAwP2NYVAKLUx02n5oTYVSc8qN_kkcipV55EMXv-RImm_sAz4Oshw5ZyRkUmwRh7we29Y4cdWDCHdAHph5GS5sJYW5aKw1avtTzI60pKiyA-eE5YrDAYJOCvctGH9dsaDbGwg-s4od8a7BwfwYyha0r-T77kjy7PdPdLvUd7OPpMN7IckESTC1u24g-9Q2oQOxZBrm8NF6mmk0F7-HUI_jkAW5rG-6oxclOFpg",
+    pageName: 'ReportSectionfac125c5e476831ebcfd',
+    id: "abf9d3f6-825b-4ff5-9b6b-91d04c5373b3",
+    embedUrl: "https://app.powerbi.com/reportEmbed?reportId=abf9d3f6-825b-4ff5-9b6b-91d04c5373b3&groupId=31e98f08-a4a1-444c-ad90-eeed28a587b8&w=2&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVVTLVdFU1QyLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJtb2Rlcm5FbWJlZCI6dHJ1ZSwiYW5ndWxhck9ubHlSZXBvcnRFbWJlZCI6dHJ1ZSwiY2VydGlmaWVkVGVsZW1ldHJ5RW1iZWQiOnRydWUsInVzYWdlTWV0cmljc1ZOZXh0Ijp0cnVlLCJza2lwWm9uZVBhdGNoIjp0cnVlfX0%3d",
+    accessToken: this.tokenService.accesstoken,
     tokenType: models.TokenType.Aad,
     settings: {
 

@@ -27,7 +27,10 @@ import { PowerBIEmbedModule } from 'powerbi-client-angular';
 import { LoginComponent } from './module/login/login.component';
 import { HomeComponent } from './module/home/home.component';
 import { CompanyComponent } from './Information/company/company.component';
-import { OurteamComponent } from './Information/ourteam/ourteam.component';
+import { ContactComponent } from './Information/contact/contact.component';
+import { DatatreeComponent } from './module/dashboard/datatree/datatree.component';
+
+import { TokenService } from './Service/token.service';
 
 
 registerLocaleData(vi);
@@ -43,7 +46,8 @@ registerLocaleData(vi);
     CompanyComponent,
     CustomerBIComponent,
     OrderlistBiComponent,
-    OurteamComponent
+    ContactComponent,
+    DatatreeComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,9 @@ registerLocaleData(vi);
 
     PowerBIEmbedModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: vi_VN }],
+  providers: [
+    { provide: NZ_I18N, useValue: vi_VN }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
