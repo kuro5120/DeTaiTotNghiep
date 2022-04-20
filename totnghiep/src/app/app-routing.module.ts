@@ -44,16 +44,16 @@ const routes:  Routes = [
         component: OrderlistBiComponent
       },
       {
+        path: 'home/datatree',
+        component: DatatreeComponent
+      },
+      {
         path: 'home/Company',
         component: CompanyComponent
       },
       {
         path: 'home/Contact',
         component: ContactComponent
-      },
-      {
-        path: 'home/datatree',
-        component: DatatreeComponent
       },
     ]
   },
