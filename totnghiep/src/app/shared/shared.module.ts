@@ -11,6 +11,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 import { NgToastModule } from 'ng-angular-popup';
 
@@ -30,6 +31,7 @@ import { RouterModule } from '@angular/router';
     NzDropDownModule,
     NzButtonModule,
     NzNotificationModule,
+    NzModalModule,
 
     NgToastModule,
 
