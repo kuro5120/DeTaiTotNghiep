@@ -16,6 +16,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
+
+import { NgToastModule } from 'ng-angular-popup';
 
 import { SharedModule } from './shared/shared.module';
 import { DashboardComponent } from './module/dashboard/dashboard.component';
@@ -60,6 +63,9 @@ registerLocaleData(vi);
     NzButtonModule,
     NzLayoutModule,
     NzEmptyModule,
+    NzNotificationModule,
+
+    NgToastModule,
 
     SharedModule,
 

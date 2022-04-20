@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NzButtonSize } from 'ng-zorro-antd/button';
 
+import { NgToastService } from 'ng-angular-popup';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,18 +22,22 @@ export class LoginComponent implements OnInit {
 
   passwordPattern = /^(?=(.*[A-Z]){1,})(?=(.*[\d]){1,}).{8,}$/;
 
-  constructor( private router: Router) { }
+  constructor( private router: Router, private toast: NgToastService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
+
     if (!this.loginform.valid){
-      console.log('Mật khẩu không hợp lệ');
+      this.toast.error({detail:"ERROR",summary:'Incorrect username or password', duration: 3000});
       return;
     }
 
-    this.router.navigate(['/home/home/BusinessIncome'])
+    if (this.loginform.valid){
+      this.toast.success({detail:"SUCCESS",summary:'login successfully', duration: 3000});
+      this.router.navigate(['/home/home/BusinessIncome'])
+    }
 
     console.log(this.loginform.value);
   }

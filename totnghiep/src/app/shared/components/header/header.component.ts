@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NzButtonSize } from 'ng-zorro-antd/button';
 
+import { NgToastService } from 'ng-angular-popup';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,7 +11,7 @@ import { NzButtonSize } from 'ng-zorro-antd/button';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor( private router: Router) { }
+  constructor( private router: Router, private toast: NgToastService) { }
 
   ngOnInit(): void {
   }
@@ -19,6 +21,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public onLogoutClick(){
+    this.toast.info({detail:"INFO",summary:'You have logged out.', duration: 1000});
     this.router.navigate(['/login']);
   }
 
